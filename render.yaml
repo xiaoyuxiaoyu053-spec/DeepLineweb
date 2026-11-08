@@ -1,0 +1,13 @@
+# Render Blueprint: New + → Blueprint → pick your repo. Zero dependencies, no build step, free plan works.
+services:
+  - type: web
+    name: deepline-web
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
